@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trái tim</title>
+    <link rel="stylesheet" href="./home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="question">
+        <h1>Độ may mắn của bạn</h1>
+        <!-- <input type="text" name="tu" id="tu" onchange="checker()" > -->
+        <div class="item-input">
+            <div class="input">
+                <input type="text" name="" id="input1"  onchange="check()" placeholder="Tên bạn" >
+            </div> 
+            <div class="input"> 
+                <input type="text" name="" id="input2" placeholder="Tên crush">
+            </div>
+        </div>
+        <div class="item-check">
+            <p class="item-button">Duyên phận (%)</p>
+        </div>
+        <div class="item-op">
+            <img class="img-op" src="./traitim.png" width="50%" height="50%">
+            <p class="item-pt">%</p>
+        </div>
+        <div class="item-conten">
+            <p onclick="check()">Bạn hãy thử nhập tên crush</p>
+
+            <!-- <input type="button" name="" id="" value="Duyên" onclick="checker()"> -->
+
+        </div>
+        <script>
+                var conten1 = document.querySelector('.item-conten p').value;
+                var duyen = document.querySelector(".item-pt");
+                var check = document.querySelector('.item-check');
+                
+                check.onclick=function(){
+                    var random= Math.floor(Math.random() *100);
+                var input1 = document.getElementById("input1").value
+                var input2 = document.getElementById("input2").value
+                if(input1.length ==" " || input1.length == null || input2.length==" " || input2.length==null) 
+                {                
+                    document.querySelector('.item-conten p').innerText="Bạn chưa từng crush ai ?";
+                    document.querySelector('.item-pt').innerText="%";
+                }
+                else{
+                    document.querySelector('.item-conten p').innerText="Chúc " + `${input1} `+ "và " + `${input2}` + " có mối quan hệ tốt";
+                    document.querySelector('.item-pt').innerText=`${random}`+ "%";
+                }
+               
+
+            } 
+            
+        </script>
+    </div>
+    <div class="main">
+        <div class="face">
+            <div class="eyes">
+                <div class="eye">
+
+                </div>
+                <div class="eye">
+
+                </div>
+            </div>
+        </div>
+        <!-- <br>
+        <div class="face">
+            <div class="eyes">
+                <div class="eye">
+
+                </div>
+                <div class="eye">
+
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="wraper">
+        <div class="item-one ">
+            <button class="button">Em từ chối</button>
+            <br>
+            <button class="button-true">Em đồng ý </button>
+        </div>
+      
+        <div class="item-true ">
+            <div class="div1">YOU</div>
+            <!-- <br>    -->
+            <div class="div2"><img src="./traitim.png"></div>
+            <!-- <br> -->
+            <div class="div3">I</div>
+
+        </div>
+        <script>
+            // click vào em từ chối
+            var item_one= document.querySelectorAll('.item-one');
+            var button = document.querySelector('button');
+            
+                button.onclick = function(){
+                   button.classList.toggle('active');
+
+                   button.onclick = function(){
+                       button.classList.toggle('active-one');  
+
+                       button.onclick = function(){
+                           button.classList.toggle('active-true');      
+                           
+                           button.onclick = function(){
+                           button.classList.toggle('active-three');  
+                           alert('em thử click vào EM ĐỒNG Ý XEM SAO')                   
+                        }   
+                        }                   
+                    }                    
+                }  
+           // click vào em dồng 
+           var div1 = document.querySelector(".div1");
+           var div3 = document.querySelector(".div3");
+           var div2 = document.querySelector(".div2");
+           var ok =document.querySelector(".button-true");
+           var trangthai = 0;
+           ok.onclick=function(){      
+            setInterval(function(){       
+               div3.style.transform = `translate3d(100%,40%,0)`;
+           },1000)
+           setInterval(function(){       
+               div1.style.transform = `translate3d(-60%,40%,0)`;
+           },2000)
+           setInterval(function(){       
+               div2.style.transform = `translate3d(0%,30%,0)`;
+           },3000)
+           }
+        </script>
+    </div>
+<script>
+    // Trái tym
+    document.addEventListener("mousemove",(e)=>{
+        let body = document.querySelector("body");
+        let heart = document.createElement("span");
+        let x = e.offsetX;
+        let y = e.offsetY;
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+      let size = Math.random() *85;
+      heart.style.width= size +"px";
+      heart.style.height=size + "px";
+        body.appendChild(heart)
+        setTimeout(function(){
+            heart.remove();
+        },5000)
+    })
+document.querySelector("body").addEventListener("mousemove",check);
+function check(){
+    var eye = document.querySelectorAll(".eye");
+    eye.forEach(function(eye){
+        let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2); 
+        let y = (eye.getBoundingClientRect().top) + (eye.clientHeight /2);
+        let radian = Math.atan2(event.pageX - x , event.pageY - y);
+        let rot  = 270+(radian * (180 / Math.PI)*-1);
+       
+        eye.style.transform="rotate("+rot+"deg)"
+
+    })
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+
+*{
+    padding: 0 ;
+    margin: 0 ;
+    box-sizing: border-box;
+}
+body{
+    /* background: rgb(168, 34, 34); */
+    background-image:linear-gradient(0,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(./love.jpg);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+span{
+    position: absolute;
+    background: url(./traitim.png);
+    background-size:cover ;
+    pointer-events: none;
+    /* width: 1000px;
+    height: 1000px; */
+    transform: translate(-50%,-50%);
+    animation: a 2s linear infinite ;
+}
+@keyframes a{
+    0%{
+        opacity: 0;
+    transform: translate(-50%,-50%);
+    filter: hue-rotate(0deg);
+    }
+    0%{
+        opacity: 1;
+    transform: translate(-100%,-100%);
+    filter: hue-rotate(720deg);
+
+    }
+}
+/* mặt cười */
+.main{
+    width: 100%;
+}
+.face{
+    background: yellow;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+   
+}
+.face::before{
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 50px;
+    background: red;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    top:125px;
+    left: 55px;
+}
+.face:hover::before{
+    height: 20px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.eyes{
+display: flex;
+
+}
+.eye{
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+    top: 40px;
+    border-radius: 50%;
+}
+.eye::before{
+    content: "";
+    position: absolute;
+    background: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    opacity: 70%;
+    top: 15px;
+    left: 6px;
+    /* transform:translate(-50%,-50%s) ; */
+}
+/* CÂU HỎI */
+.wraper{
+    width: 100%;
+    clear: both;
+}
+.button,.button-true{
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: red;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: pointer;
+}
+.button-true{
+    float: left;
+
+}
+.button-true:hover{
+    background:rgba(0, 128, 0, 0.774);
+    color: hotpink;
+}
+.button:hover{
+    background:red;
+    color: white;
+}
+ .active{
+        margin-left: 100px;
+    }
+    .active-one{
+        /* margin-top: 100px; */
+        margin-left: 150px;   
+    }
+    .active-true{
+        /* margin-bottom: 200px; */
+        margin-left: 200px;   
+    }
+    .active-three{
+        margin-left: 0;
+    }
+.div1,.div2,.div3{
+    float: right;
+    margin-right: 40px;
+    color: red;
+    font-size:80px;
+    font-weight: 900 ;
+    width: 10%;
+    transition: all 0.9s ease;
+    animation: doimau ease 2s infinite;
+}
+@keyframes doimau {
+    0%{
+        opacity: 0.5;
+        color: green;
+    }
+    25%{
+        opacity: 0.7;
+        color: red;
+    }
+    75%{
+        opacity: 0.9;
+         color: white;
+    }
+    100%{
+        opacity: 1;
+        color: hotpink;
+   }
+}
+.div1{
+    margin-right: 200px;
+}
+.div2 img{
+    width: 100%;
+    height: 100%;
+    transition: all 0.9s ease;
+}
+.question{
+    /* display: flex; */
+}
+.question h1{
+    color: rgba(219, 198, 198, 0.692);
+    font-weight: 900;
+    padding: 20px 65px;
+}
+.item-input{
+    display: flex;
+}
+.input{
+    padding: 10px;
+    display: flex;
+
+}
+input{
+    padding: 6px 0 6px 20px;
+    border-radius: 6px;
+}
+.item-check{
+    margin-left: 100px;
+    width: 200px;
+    height: 40px;
+    background:rgba(255, 248, 220, 0.473);
+    cursor: pointer;
+}
+.item-check:hover{
+    background:rgba(255, 248, 220, 0.315);
+}
+.item-check .item-button{
+    line-height: 40px;
+    text-align: center;
+    color:white;
+}
+.item-op{
+    margin-left: 145px;
+}
+.item-op .img-op{
+   position: relative;
+}
+.item-op .item-pt{
+    position: absolute;
+    top:525px;
+    left: 190px;
+    color: white;
+    font-size: 25px;
+    font-weight: 900;
+}
+.item-conten{
+    margin-left: 100px;
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+}
